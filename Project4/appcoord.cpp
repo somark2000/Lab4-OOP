@@ -7,9 +7,7 @@ using namespace std;
 
 void maain()
 {
-	repo rep;
-	contr con(rep);
-	ui userinterface(con);
+	ui userinterface;
 	userinterface.run();
 }
 

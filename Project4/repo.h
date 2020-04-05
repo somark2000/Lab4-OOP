@@ -8,7 +8,6 @@ using namespace std;
 class repo
 {
 	friend class contr;
-	friend class drug;
 private:
 	drug *farm;
 	int cap, len;
@@ -16,9 +15,6 @@ private:
 public:
 	//constructor
 	repo();
-
-	//destructor
-	~repo();
 
 	//shows all the drugs 
 	void show();

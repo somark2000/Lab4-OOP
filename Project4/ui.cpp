@@ -3,9 +3,9 @@
 
 using namespace std;
 
-ui::ui(contr cont)
+ui::ui()
 {
-	con = cont;
+
 }
 
 ui::~ui()
@@ -33,7 +33,7 @@ void ui::run()
 	while (true)
 	{
 		ui::Menu();
-		//repo* repo;
+		contr con=contr();
 		int com;
 		cout << "Input the command: ";
 		cin >> com;

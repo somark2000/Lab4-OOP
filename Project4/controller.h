@@ -18,8 +18,7 @@ struct action
 
 class contr
 {
-	friend class repo;
-	friend class drug;
+	friend class ui;
 private:
 	repo rep;
 	vector<action> history_undo; //istoric de modificari
@@ -27,7 +26,7 @@ private:
 
 public:
 	//constructor
-	contr(repo r);
+	contr();
 
 	//destructor
 	~contr();

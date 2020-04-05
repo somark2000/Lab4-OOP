@@ -5,9 +5,9 @@
 
 using namespace std;
 
-contr::contr(repo r)
+contr::contr()
 {
-	this->rep = r;
+	rep = repo();
 }
 
 contr::~contr()
