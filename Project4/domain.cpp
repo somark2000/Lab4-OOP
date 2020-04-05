@@ -11,7 +11,7 @@ drug::drug(std::string name, float k, int m, float p)
 	this->name = name;
 	this->menge = m;
 	this->preis = p;
-	this->konzentration = k;  
+	this->konzentration = k;
 }
 
 drug::~drug()
@@ -57,4 +57,9 @@ void drug::setmenge(int m)
 void drug::setpreis(float p)
 {
 	this->preis = p;
+}
+
+void drug::zeigen()
+{
+	cout << "Name: " << name << " Konzentration: " << konzentration << " Menge: " << menge << " Preis: " << preis << endl;
 }

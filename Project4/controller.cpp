@@ -1,5 +1,11 @@
+#include <string>
+#include <forward_list>
+#include <algorithm>
+#include <numeric>
+#include <vector>
 #include <iostream>
 #include "controller.h"
+#include "repo.h"
 
 contr::contr(repo r)
 {
@@ -191,7 +197,7 @@ void contr::lowsupply(int x)
 		repo r;
 		for (int i = 0; i < rep.len; ++i)
 		{
-			if (rep.farm[i].getmenge()<x)
+			if (rep.farm[i].getmenge() < x)
 			{
 				r.farm[r.len] = rep.farm[i];
 				r.len++;

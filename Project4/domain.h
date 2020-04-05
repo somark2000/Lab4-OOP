@@ -12,7 +12,7 @@ public:
 	//constuctor
 	drug();
 	drug(std::string name, float k, int m, float p);
-	
+
 	//destructor
 	~drug();
 
@@ -39,4 +39,6 @@ public:
 
 	//preis setter
 	void setpreis(float p);
+
+	void zeigen();
 };

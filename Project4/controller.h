@@ -36,4 +36,9 @@ public:
 
 	//shows the drugs on low supply
 	void lowsupply(int x);
+
+	void searchPrice(drug* drug, repo v);
+
+	void searchQuantity(const int& quantity);
+
 };
