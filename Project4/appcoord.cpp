@@ -1,13 +1,16 @@
-#include <iostream>
 #include "appcoord.h"
+#include "controller.h"
+#include "repo.h"
 #include "ui.h"
+
 using namespace std;
 
 void maain()
 {
-	ui userinterface;
-	userinterface.Menu();
-
+	repo rep;
+	contr con(rep);
+	ui userinterface(con);
+	userinterface.run();
 }
 
 int main()

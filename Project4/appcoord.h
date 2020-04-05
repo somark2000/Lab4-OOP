@@ -2,4 +2,3 @@
 
 void maain();
 int main();
-

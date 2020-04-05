@@ -1,10 +1,17 @@
 #include <iostream>
 #include "ui.h"
-#include "controller.h"
-#include "domain.h"
-#include "repo.h"
 
 using namespace std;
+
+ui::ui(contr cont)
+{
+	con = cont;
+}
+
+ui::~ui()
+{
+
+}
 
 void ui::Menu()
 {
@@ -26,37 +33,91 @@ void ui::run()
 	while (true)
 	{
 		ui::Menu();
-		repo* repo;
-		int commandRepo{ 0 };
+		//repo* repo;
+		int com;
 		cout << "Input the command: ";
-		cin >> commandRepo;
-		cin.ignore();
-		if (commandRepo == 0)
-			break;
-		switch (commandRepo)
+		cin >> com;
+		//cin.ignore();
+		switch(com)
 		{
-		/*
-		case 1:
-		case 2:
-		case 3:
-		case 4:
-		*/
-		case 5:
-			repo->preis_sort();
-			break;
-		case 6:
-			cout << "Enter quantity:";
-			int quantity;
-			cin >> quantity;
-			repo->menge_sort(quantity);
-			break;
-		case 7:
-			repo->undo();
-			cout << "Undo successful." << endl;
-			break;
-		case 8:
-			repo->redo();
-			break;
+			case 1:
+			{
+				string name;
+				int m;
+				float k, p;
+				cout << "Add new drug\n" << "Name: ";
+				cin >> name;
+				cout << "Menge :";
+				cin >> m;
+				cout << "Konzentation: ";
+				cin >> k;
+				cout << "Preis :";
+				cin >> p;
+				drug d = drug(name, k, m, p);
+				con.add(d);
+				break;
+			}
+			case 2:
+			{
+				string name;
+				int m=0;
+				float k, p=0;
+				cout << "Add new drug\n" << "Name: ";
+				cin >> name;
+				cout << "Konzentation: ";
+				cin >> k;
+				drug d = drug(name, k, m, p);
+				con.remove(d);
+				break;
+			}
+			case 3:
+			{
+				string name;
+				int m = 0;
+				float k, p = 0;
+				cout << "Add new drug\n" << "Name: ";
+				cin >> name;
+				cout << "Konzentation: ";
+				cin >> k;
+				drug d = drug(name, k, m, p);
+				con.update(d);
+				break;
+			}
+			case 4:
+			{
+				string s;
+				cout << "What are you searching for: ";
+				cin >> s;
+				con.show(s);
+				break;
+			}
+			case 5:
+			{
+				con.preis_sort();
+				break;
+			}
+			case 6:
+			{
+				cout << "Enter quantity:";
+				int quantity;
+				cin >> quantity;
+				con.menge_sort(quantity);
+				break;
+			}
+			case 7:
+			{
+				con.undo();
+				cout << "Undo successful." << endl;
+				break;
+			}
+			case 8:
+			{
+				con.redo();
+				cout << "Redo successful." << endl;
+				break;
+			}
+			default:
+				return;
 		}
 	}
-}
+} 

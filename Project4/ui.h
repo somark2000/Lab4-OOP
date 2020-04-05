@@ -1,13 +1,20 @@
 #pragma once
 #include <iostream>
 #include "controller.h"
-#include "domain.h"
-#include "repo.h"
 
 class ui
 {
+	friend class repo;
+	friend class drug;
+	friend class contr;
+private:
+	contr con;
 public:
-
 	void Menu();
 	void run();
+	//constructor
+	ui(contr cont);
+
+	//destructor
+	~ui();
 };
