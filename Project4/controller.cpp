@@ -12,7 +12,7 @@ contr::contr()
 
 contr::~contr()
 {
-	delete rep.farm;
+	//delete rep.farm;
 }
 
 bool contr::isempty()
@@ -44,7 +44,8 @@ void contr::add(drug d)
 	{
 		rep.farm[rep.len] = d;
 		rep.len++;
-		if (rep.len = rep.cap)//the container is full
+		//cout << rep.len;
+		if (rep.len == rep.cap)//the container is full
 		{
 			rep.cap *= 2;
 			drug* v = new drug[rep.cap];
@@ -66,6 +67,7 @@ void contr::add(drug d)
 			}
 		}
 	}
+	cout << rep.len<<endl;
 	action a;
 	a.act = 1;
 	a.d = d;

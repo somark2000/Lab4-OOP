@@ -30,10 +30,11 @@ void ui::Menu()
 
 void ui::run()
 {
+	contr con = contr();
 	while (true)
 	{
 		ui::Menu();
-		contr con=contr();
+		
 		int com;
 		cout << "Input the command: ";
 		cin >> com;
@@ -62,7 +63,7 @@ void ui::run()
 				string name;
 				int m=0;
 				float k, p=0;
-				cout << "Add new drug\n" << "Name: ";
+				cout << "Drug to be deleted\n" << "Name: ";
 				cin >> name;
 				cout << "Konzentation: ";
 				cin >> k;
@@ -91,12 +92,12 @@ void ui::run()
 				con.show(s);
 				break;
 			}
-			case 5:
+			case 6:
 			{
 				con.preis_sort();
 				break;
 			}
-			case 6:
+			case 5:
 			{
 				cout << "Enter quantity:";
 				int quantity;

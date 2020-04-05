@@ -6,14 +6,19 @@ using namespace std;
 
 repo::repo()
 {
-	this->cap = 100;
-	this->len = 0;
-	this->farm = new drug[this->cap];
+	cap = 100;
+	len = 0;
+	farm = new drug[cap];
 }
+
+/*repo::~repo()
+{
+	delete farm;
+}*/
 
 void repo::show()
 {
-	for (int i = 0; i < this->len; ++i)
+	for (int i = 0; i < len; ++i)
 	{
 		cout << farm[i].getname() << ' ' << farm[i].getkonzentration() << ' ' << farm[i].getmenge() << ' ' << farm[i].getpreis() << '\n';
 	}

@@ -16,6 +16,9 @@ public:
 	//constructor
 	repo();
 
+	//destructor
+	//~repo();
+
 	//shows all the drugs 
 	void show();
 };
