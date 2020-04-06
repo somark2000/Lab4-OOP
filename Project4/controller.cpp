@@ -76,32 +76,8 @@ void contr::add(drug d)
 
 void contr::uadd(drug d)
 {
-	if (search(d) == false)
-	{
-		rep.farm[rep.len] = d;
-		rep.len++;
-		if (rep.len = rep.cap)//the container is full
-		{
-			rep.cap *= 2;
-			drug* v = new drug[rep.cap];
-			for (int i = 0; i < rep.len; ++i)
-			{
-				v[i] = rep.farm[i];
-			}
-			delete rep.farm;
-			rep.farm = v;
-		}
-	}
-	else
-	{
-		for (int i = 0; i < rep.len; ++i)
-		{
-			if ((d.getkonzentration() == rep.farm[i].getkonzentration()) and (d.getname() == rep.farm[i].getname()))
-			{
-				rep.farm[i].setmenge(rep.farm[i].getmenge() + d.getmenge());
-			}
-		}
-	}
+	rep.farm[rep.len] = d;
+	rep.len++;
 	action a;
 	a.act = 1;
 	a.d = d;
@@ -141,16 +117,6 @@ void contr::remove(drug d)
 
 void contr::uremove(drug d)
 {
-	if (isempty() == true)
-	{
-		std::cout << "Container empty\n";
-		return;
-	}
-	if (search(d) == false)
-	{
-		std::cout << "The searched drug is not listed\n";
-		return;
-	}
 	for (int i = 0; i < rep.len; ++i)
 	{
 		if ((d.getkonzentration() == rep.farm[i].getkonzentration()) and (d.getname() == rep.farm[i].getname()))
@@ -242,7 +208,7 @@ void contr::show(std::string s)
 		repo r;
 		for (int i = 0; i < rep.len; ++i)
 		{
-			if (rep.farm[i].getname().find(s)==0)
+			if (rep.farm[i].getname().find(s) == 0)
 			{
 				//r.farm[r.len++] = rep.farm[i];
 				rep.farm[i].zeigen();

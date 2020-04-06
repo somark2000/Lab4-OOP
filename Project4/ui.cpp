@@ -77,7 +77,7 @@ void ui::run()
 			string name;
 			int m = 0;
 			float k, p = 0;
-			cout << "Add new drug\n" << "Name: ";
+			cout << "Update drug\n" << "Name: ";
 			cin >> name;
 			cout << "Konzentation: ";
 			cin >> k;
@@ -98,7 +98,7 @@ void ui::run()
 				con.name_sort();
 				break;
 			}
-			else 
+			else
 			{
 				con.show(s);
 				break;
