@@ -67,7 +67,7 @@ void contr::add(drug d)
 			}
 		}
 	}
-	cout << rep.len<<endl;
+	cout << rep.len << endl;
 	action a;
 	a.act = 1;
 	a.d = d;
@@ -242,11 +242,12 @@ void contr::show(std::string s)
 		repo r;
 		for (int i = 0; i < rep.len; ++i)
 		{
-			if (rep.farm[i].getname().find(s))
+			if (rep.farm[i].getname().find(s)==0)
 			{
-				r.farm[r.len] = rep.farm[i];
-				r.len++;
-				if (r.len = r.cap)//the container is full
+				//r.farm[r.len++] = rep.farm[i];
+				rep.farm[i].zeigen();
+
+				/*if (r.len = r.cap)//the container is full
 				{
 					r.cap *= 2;
 					drug* v = new drug[r.cap];
@@ -256,11 +257,21 @@ void contr::show(std::string s)
 					}
 					delete r.farm;
 					r.farm = v;
-				}
+				}*/
 			}
 		}
 		r.show();
 	}
+}
+
+void contr::name_sort()
+{
+	auto relation = [](drug a, drug b) { return a.getname() < b.getname(); };
+	sort(rep.farm, rep.farm + rep.len, relation);
+
+	for (int i = 0; i < rep.len; i++)
+		rep.farm[i].zeigen();
+
 }
 
 //zeigt die Medikamente mit einer kleineren Menge als eine gegebene
@@ -296,12 +307,12 @@ void contr::undo()
 {
 	if (history_undo.size() != 0)
 	{
-		action med =history_undo.at(history_undo.size() - 1);
+		action med = history_undo.at(history_undo.size() - 1);
 		if (med.act == 1)
 		{
 			uremove(med.d);
 		}
-		else if(med.act==2)
+		else if (med.act == 2)
 		{
 			uupdate(med.d);
 		}
@@ -312,7 +323,7 @@ void contr::undo()
 		history_undo.pop_back();
 		return;
 	}
-		//cout << "undo"<<" "<<endl;
+	//cout << "undo"<<" "<<endl;
 	std::cout << " Nu este posibil! " << endl;
 }
 
